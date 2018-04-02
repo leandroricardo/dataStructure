@@ -1,16 +1,16 @@
 package com.algorithms;
 
-public class Vetor {
+public class List<T> {
 
-    private Object[] elements;
+    private T[] elements;
     private int length;
 
-    public Vetor(int elements) {
-        this.elements = new Object[elements];
+    public List(int elements) {
+        this.elements = (T[]) new Object[elements];
         this.length = 0;
     }
 
-    public boolean add(Object element) {
+    public boolean add(T element) {
         increaseCapacity();
 
         if (this.length < this.elements.length) {
@@ -21,7 +21,7 @@ public class Vetor {
         return false;
     }
 
-    public boolean add(int position, Object element) {
+    public boolean add(int position, T element) {
         verifyValidPosition(position);
         increaseCapacity();
 
@@ -44,12 +44,12 @@ public class Vetor {
         this.length--;
     }
 
-    public Object find(int position) {
+    public T find(int position) {
         verifyValidPosition(position);
         return this.elements[position];
     }
 
-    public int find(Object element) {
+    public int find(T element) {
         for (int i = 0; i < this.length; i++) {
             if (this.elements[i].equals(element)) {
                 return i;
@@ -66,7 +66,7 @@ public class Vetor {
 
     private void increaseCapacity() {
         if (this.length == this.elements.length) {
-            Object[] newElements = new Object[this.length * 2];
+            T[] newElements = (T[]) new Object[this.length * 2];
 
             for (int i = 0; i < this.length; i++) {
                 newElements[i] = this.elements[i];
