@@ -58,24 +58,11 @@ public class List<T> {
         return -1;
     }
 
-    private void verifyValidPosition(int position) {
-        if (position < 0 || position > this.length - 1) {
-            throw new IllegalArgumentException("Invalid position");
-        }
+    public boolean contains(T element){
+        return find(element) >= 0;
     }
 
-    private void increaseCapacity() {
-        if (this.length == this.elements.length) {
-            T[] newElements = (T[]) new Object[this.length * 2];
-
-            for (int i = 0; i < this.length; i++) {
-                newElements[i] = this.elements[i];
-            }
-            elements = newElements;
-        }
-    }
-
-    public int length() {
+    public int size() {
         return this.length;
     }
 
@@ -96,5 +83,22 @@ public class List<T> {
         s.append("]");
 
         return s.toString();
+    }
+
+    private void verifyValidPosition(int position) {
+        if (position < 0 || position > this.length - 1) {
+            throw new IllegalArgumentException("Invalid position");
+        }
+    }
+
+    private void increaseCapacity() {
+        if (this.length == this.elements.length) {
+            T[] newElements = (T[]) new Object[this.length * 2];
+
+            for (int i = 0; i < this.length; i++) {
+                newElements[i] = this.elements[i];
+            }
+            elements = newElements;
+        }
     }
 }
