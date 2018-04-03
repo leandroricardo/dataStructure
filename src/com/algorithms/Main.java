@@ -3,75 +3,50 @@ package com.algorithms;
 public class Main {
 
     public static void main(String[] args) {
+        //testList();
 
-        testOne();
-
-        testTwo();
-
-        testTree();
-
-
+        testStack();
     }
 
-    private static void testTree() {
+    private static void testStack() {
 
-        List<Person> listPerson = new List<>(10);
+        Stack<Integer> stack = new Stack<>();
+
+        System.out.println(stack);
+        System.out.println(stack.size());
+    }
+
+    private static void testList() {
+
+        ArrList<Person> arrListPerson = new ArrList(10);
 
         Person p1 = new Person("Leandro", "333555777", "leandro@gmail.com");
         Person p2 = new Person("Carlos", "555777333", "carlos@gmail.com");
         Person p3 = new Person("Ricardo", "777333555", "ricardo@gmail.com");
         Person p4 = new Person("Ricardo", "777333555", "ricardo@gmail.com");
 
-        listPerson.add(p1);
-        listPerson.add(p2);
-        listPerson.add(p3);
+        Person p5 = new Person("Leandro", "333555777", "leandro@gmail.com");
+        Person p6 = new Person("Carlos", "555777333", "carlos@gmail.com");
+        Person p7 = new Person("Ricardo", "777333555", "ricardo@gmail.com");
+        Person p8 = new Person("Manuel", "777333555", "ricardo@gmail.com");
 
-        int pos = listPerson.find(p4);
+        arrListPerson.add(p1);
+        arrListPerson.add(p2);
+        arrListPerson.add(p3);
+        arrListPerson.add(p4);
+        arrListPerson.add(p5);
+        arrListPerson.add(p6);
+        arrListPerson.add(p7);
+        arrListPerson.add(p8);
 
-        System.out.println(pos > 0 ? "Element remove at position " + pos : "Element does not exist at this collection");
+        int lastPos = arrListPerson.lastIndexOf(p2);
 
-        System.out.println(listPerson.toString());
-    }
+        arrListPerson.remove(p8);
 
-    private static void testTwo() {
+        System.out.println("Last position for the element is: " + lastPos);
 
-        Vetor vetor = new Vetor(3);
-        Person p1 = new Person("Leandro", "333555777", "leandro@gmail.com");
-        Person p2 = new Person("Carlos", "555777333", "carlos@gmail.com");
-        Person p3 = new Person("Ricardo", "777333555", "ricardo@gmail.com");
-        Person p4 = new Person("Ricardo", "777333555", "ricardo@gmail.com");
+        arrListPerson.clearArrList();
 
-        vetor.add(p1);
-        vetor.add(p2);
-        vetor.add(p3);
-
-        int pos = vetor.find(p4);
-
-        System.out.println(pos > 0 ? "Element remove at position " + pos : "Element does not exist at this collection");
-
-        System.out.println(vetor.toString());
-    }
-
-    private static void testOne() {
-
-        Vetor vetor = new Vetor(3);
-
-        vetor.add("1");
-        vetor.add("3");
-        vetor.add("5");
-        vetor.add("7");
-        vetor.add("9");
-
-
-        vetor.add(1, "2");
-        vetor.add(3, "4");
-        vetor.add(5, "6");
-        vetor.add(7, "8");
-
-        vetor.remove(7);
-
-        System.out.println(vetor.find(0));
-        System.out.println(vetor.find("1"));
-        System.out.println(vetor);
+        System.out.println(arrListPerson.toString());
     }
 }
